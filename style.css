@@ -65,6 +65,29 @@ li {
 
 }
 
+.changing-text {
+    overflow: hidden;
+    border-right: 0.08em solid orange;
+    /* Efecto de escritura con un borde derecho */
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: 0.15em;
+    /* Espaciado de las letras */
+    animation: typing 3s steps(40, end), blink-caret 0.5s step-end infinite;
+    /* Definir la animación */
+}
+
+/* Animación de escritura */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
 /* Estilos para la animación activada */
 .animatePoints::before {
     animation-play-state: running;
@@ -93,6 +116,12 @@ li {
 .menu a:hover {
     border-bottom: 2px solid #fff;
 }
+
+/* Estilo para el enlace activo */
+.menu a.active {
+    border-bottom: 2px solid #fff;
+}
+
 
 .info {
     height: 100%;
@@ -160,6 +189,28 @@ h2 {
 }
 
 
+/* Agrega la animación al borde cuando el mouse está sobre el elemento */
+.skill_info:hover {
+    /* Aplica la animación al borde */
+    animation: borderAnimation 1s linear infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        border-color: #fff;
+    }
+
+    50% {
+        border-color: blue;
+    }
+
+    100% {
+        border-color: #fff;
+    }
+}
+
+
+
 .skill_title {
     padding: 3rem;
     padding-bottom: 1rem;
@@ -202,13 +253,16 @@ h2 {
     margin: 40px;
     background-color: rgba(0, 0, 0, 0.6);
     border: 1px solid #fff;
+}
 
+.project_info:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
 }
 
 a {
     text-decoration: none;
     color: #fff;
-
 }
 
 .project_title {
@@ -222,15 +276,9 @@ a {
 
 }
 
-.project_info img {
-    width: 35px;
-    height: 35px;
-    object-fit: cover;
-}
-
 .project_info p {
     padding: 1rem;
-    font-size: 18px;
+    font-size: auto;
     line-height: 20px;
     text-align: center;
 }
@@ -239,15 +287,22 @@ a {
     margin: 5px 0 0 0;
     background-color: rgb(32, 238, 238);
     color: #161616;
-}
-
-.project_info span {
-    text-align: right;
     margin-right: 5px;
-    margin-bottom: 0;
     padding: 2px;
     font-weight: 700;
     border-radius: 3px;
+}
+
+.project_info_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-direction: space-between;
+}
+
+
+.project_info_container div {
+    margin: auto 0 0 auto;
 }
 
 .experiences {
@@ -365,6 +420,10 @@ a {
     background-color: rgb(30, 30, 45);
     padding: 1rem;
     border: 1px solid #fff;
+}
+
+.course:hover {
+    animation: borderAnimation 1s linear infinite;
 }
 
 

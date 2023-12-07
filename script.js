@@ -5,6 +5,8 @@ const img_powerbi = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/N
 const img_frontend = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Front-end-logo-color%402x.png/220px-Front-end-logo-color%402x.png"
 const img_matlab = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Matlab_Logo.png/220px-Matlab_Logo.png"
 
+let cont_skills = 0;
+
 function addSkill(skillName, skillImage, skillDescription) {
     // Crea un nuevo elemento div para la skill
     const skillElement = document.createElement("div");
@@ -32,7 +34,9 @@ function addSkill(skillName, skillImage, skillDescription) {
     // Agrega la skill al DOM
     const skillsElement = document.querySelector(".skills");
     skillsElement.appendChild(skillElement);
+
 }
+
 
 addSkill("Python", img_python, "Manejo de librerías como Numpy, Pandas, Matplotlib, Scikit-learn, etc. para el análisis de datos y machine learning.");
 addSkill("Excel", img_excel, "Manejo de tablas dinámicas, gráficos, fórmulas, macros, etc. para el análisis y manipulación de datos.");
@@ -60,20 +64,25 @@ function addProject(projectName, projectsubs, projectDescription, projectLink) {
     projectNameElement.textContent = projectName;
     projectTitle.appendChild(projectNameElement);
 
+    //Crea un div para info del proyecto
+    const projectInfo = document.createElement("div");
+    projectInfo.classList.add("project_info_container");
+    projectElement.appendChild(projectInfo);
+
     // Agrega la descripción del proyecto
     const projectDescriptionElement = document.createElement("p");
     projectDescriptionElement.textContent = projectDescription;
-    projectElement.appendChild(projectDescriptionElement);
+    projectInfo.appendChild(projectDescriptionElement);
 
     // Agrega las subs del proyecto
-    const projectSkillsElement = document.createElement("span");
+    const projectSkillsElement = document.createElement("div");
     for (var i = 0; i < projectsubs.length; i++) {
         const projectSkillElement = document.createElement("span");
         projectSkillElement.classList.add("project_skill");
         projectSkillElement.textContent = projectsubs[i];
         projectSkillsElement.appendChild(projectSkillElement);
     }
-    projectElement.appendChild(projectSkillsElement);
+    projectInfo.appendChild(projectSkillsElement);
 
     // Agrega el proyecto al DOM
     const projectsElement = document.querySelector(".projects_container");
@@ -204,3 +213,69 @@ addCourse("Python for everybody", "2021", "Especialización en Coursera de pytho
 addCourse("Ask Questions to Make Data-Driven Decisions", "2023", "Segundo curso de especialización en cursera por Google, Data Analitics", "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~R4HQE727KDVG/CERTIFICATE_LANDING_PAGE~R4HQE727KDVG.jpeg", "https://coursera.org/share/6ea3b7cf9d20c8738b81be0cd09be04a")
 addCourse("Foundations: Data, Data, Everywhere", "2023", "Primer curso de especialización en cursera por Google, Data Analitics", "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~UJJY4FN3765X/CERTIFICATE_LANDING_PAGE~UJJY4FN3765X.jpeg", "https://coursera.org/share/70bc4c86bb15b00b92a13ec6230d7dae")
 addCourse("Introduction to the Internet of Things and Embedded Systems", "2022", "Curso sobre Internet of things", "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~CCDECDMPA48Y/CERTIFICATE_LANDING_PAGE~CCDECDMPA48Y.jpeg", "https://coursera.org/share/05a11bb1cee6f14cdc029c31cf3e1f1a")
+
+// Obtener todos los enlaces del menú
+const menuLinks = document.querySelectorAll('.menu a');
+
+// Función para verificar el desplazamiento y resaltar el elemento del menú activo
+function onScroll() {
+    // Obtener la posición actual de desplazamiento
+    const scrollPosition = window.scrollY;
+
+    // Recorrer cada sección
+    document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id');
+        // Verificar si la sección está visible en la ventana
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight - 100) {
+            // Remover la clase 'active' de todos los enlaces del menú
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Agregar la clase 'active' al enlace del menú correspondiente a la sección visible
+            document.querySelector(`.menu a[href="#${sectionId}"]`).classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', onScroll);
+
+const dynamicTitles = [
+    "Data Scientist",
+    "Web Developer",
+    "Data Analyst"];
+
+let currentTitleIndex = 0;
+let titleElement = document.getElementById('dynamicTitle');
+let dynamicText = dynamicTitles[currentTitleIndex];
+
+function changeDynamicTitle() {
+    let index = 0;
+    let interval = setInterval(function () {
+        titleElement.textContent = dynamicText.slice(0, index);
+        index++;
+        if (index > dynamicText.length) {
+            clearInterval(interval);
+            setTimeout(eraseText, 1000); // Tiempo para mostrar el texto antes de borrarlo
+        }
+    }, 100); // Tiempo entre cada letra mostrada (ajusta según sea necesario)
+}
+
+function eraseText() {
+    let index = dynamicText.length;
+    let interval = setInterval(function () {
+        titleElement.textContent = dynamicText.slice(0, index);
+        index--;
+        if (index === 0) {
+            clearInterval(interval);
+            currentTitleIndex = (currentTitleIndex + 1) % dynamicTitles.length;
+            dynamicText = dynamicTitles[currentTitleIndex];
+            setTimeout(changeDynamicTitle, 500); // Tiempo antes de iniciar el próximo texto
+        }
+    }, 100); // Tiempo entre cada letra borrada (ajusta según sea necesario)
+}
+
+// Iniciar la animación
+changeDynamicTitle();
