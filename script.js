@@ -89,12 +89,12 @@ function addProject(projectName, projectsubs, projectDescription, projectLink) {
     projectsElement.appendChild(projectElement);
 }
 
-addProject("Research Rising Stars", ['Python', 'ML'], "Búsqueda de futuras estrellas en la literatura por medio de una base de datos con más de 100, 000 datos, se utilizaron herramientasde ML como la regresión y el clustering. Además de análisis de los resultados por mediode visualizaciones.", "https://www.google.com/");
-addProject("Análisis de calidad del aire", ['Python', 'Data Viz'], "Análisis de datos de calidad del aire y contaminantes en México por medio de visualizaciones y modelos de machine learning.", "https://www.google.com/");
-addProject("Análisis generación de gas y aceite en México 2018-2022", ['Power BI', 'SQL'], "Análisis de la generación de gas y aceite en México por medio de visualizaciones y consultas a una base de datos.", "https://www.google.com/");
-addProject("Generación Red Neuronal para clasificación de prendas de ropa", ['Python', 'ML'], "Generación de una red neuronal para la clasificación de prendas de ropa por medio de imágenes.", "https://www.google.com/");
-addProject("Generación Red Neuronal para clasificación de Notas de Banco Falsas", ['Python', 'ML'], "Generación de una red neuronal para la clasificación de notas de banco falsas por medio de imágenes.", "https://www.google.com/")
-addProject("Creación de página web para grupo estudiantil.", ["Frontend", "Backend"], "Creación de página web para el grupo estudiantil ESTRATEGO en el cual se subían videos por medio de una base de datos sql conectada con YT.", ["https://www.google.com/"])
+addProject("Research Rising Stars", ['Python', 'ML'], "Búsqueda de futuras estrellas en la literatura por medio de una base de datos con más de 100, 000 datos, se utilizaron herramientasde ML como la regresión y el clustering. Además de análisis de los resultados por mediode visualizaciones.", "https://github.com/calberto05/reseach_rising_stars");
+addProject("Análisis de calidad del aire", ['Python', 'Data Viz'], "Análisis de datos de calidad del aire y contaminantes en México por medio de visualizaciones y modelos de machine learning.", "https://github.com/calberto05/air_quality_analysis");
+addProject("Análisis generación de gas y aceite en México 2018-2022", ['Power BI', 'SQL'], "Análisis de la generación de gas y aceite en México por medio de visualizaciones y consultas a una base de datos.", "https://github.com/calberto05/generacion_gas_aceite");
+addProject("Generación Red Neuronal para clasificación de prendas de ropa", ['Python', 'ML'], "Generación de una red neuronal para la clasificación de prendas de ropa por medio de imágenes.", "https://github.com/calberto05/FashionMnist_neural_network");
+addProject("Generación Red Neuronal para clasificación de Notas de Banco Falsas", ['Python', 'ML'], "Generación de una red neuronal para la clasificación de notas de banco falsas por medio de imágenes.", "https://github.com/calberto05/bank_notes_ML")
+addProject("Creación de página web para grupo estudiantil.", ["Frontend", "Backend"], "Creación de página web para el grupo estudiantil ESTRATEGO en el cual se subían videos por medio de una base de datos sql conectada con YT.", "https://www.google.com/")
 
 // lets do an experience function
 function addExperience(name, subjects, date, year, description, img) {
