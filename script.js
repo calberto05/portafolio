@@ -240,22 +240,26 @@ function onScroll() {
     });
 }
 
-window.addEventListener('scroll', onScroll);
-
 const dynamicTitles = [
     "Data Scientist",
     "Web Developer",
-    "Data Analyst"];
+    "Data Analyst"
+];
 
 let currentTitleIndex = 0;
-let titleElement = document.getElementById('dynamicTitle');
-let dynamicText = dynamicTitles[currentTitleIndex];
+let titleElements = document.getElementsByClassName('dynamicTitle');
 
 function changeDynamicTitle() {
+    let dynamicText = dynamicTitles[currentTitleIndex];
     let index = 0;
+
     let interval = setInterval(function () {
-        titleElement.textContent = dynamicText.slice(0, index);
+        for (let i = 0; i < titleElements.length; i++) {
+            let titleElement = titleElements[i];
+            titleElement.textContent = dynamicText.slice(0, index);
+        }
         index++;
+
         if (index > dynamicText.length) {
             clearInterval(interval);
             setTimeout(eraseText, 1000); // Tiempo para mostrar el texto antes de borrarlo
@@ -264,14 +268,18 @@ function changeDynamicTitle() {
 }
 
 function eraseText() {
-    let index = dynamicText.length;
+    let index = dynamicTitles[currentTitleIndex].length;
+
     let interval = setInterval(function () {
-        titleElement.textContent = dynamicText.slice(0, index);
+        for (let i = 0; i < titleElements.length; i++) {
+            let titleElement = titleElements[i];
+            titleElement.textContent = dynamicTitles[currentTitleIndex].slice(0, index);
+        }
         index--;
+
         if (index === 0) {
             clearInterval(interval);
             currentTitleIndex = (currentTitleIndex + 1) % dynamicTitles.length;
-            dynamicText = dynamicTitles[currentTitleIndex];
             setTimeout(changeDynamicTitle, 500); // Tiempo antes de iniciar el próximo texto
         }
     }, 100); // Tiempo entre cada letra borrada (ajusta según sea necesario)
