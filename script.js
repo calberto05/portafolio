@@ -34,7 +34,6 @@ function addSkill(skillName, skillImage, skillDescription) {
     // Agrega la skill al DOM
     const skillsElement = document.querySelector(".skills");
     skillsElement.appendChild(skillElement);
-
 }
 
 
@@ -233,12 +232,13 @@ function onScroll() {
             menuLinks.forEach(link => {
                 link.classList.remove('active');
             });
-
             // Agregar la clase 'active' al enlace del menú correspondiente a la sección visible
             document.querySelector(`.menu a[href="#${sectionId}"]`).classList.add('active');
         }
     });
 }
+
+window.addEventListener('scroll', onScroll);
 
 const dynamicTitles = [
     "Ciencia de Datos",
