@@ -167,7 +167,7 @@ function addExperience(name, subjects, date, year, description, img) {
     experiencesElement.appendChild(experienceElement);
 }
 
-addExperience("Servicio Social Data Science OEM", ["Data Science", "Data Analysis"], "Agosto 2023-Actualidad", 2023, "Análisis de datos de calidad del aire y contaminantes en México por medio de visualizaciones y modelos de machine learning.", "https://pbs.twimg.com/profile_images/1111787884196052992/hxDvukv0_400x400.png")
+addExperience("Servicio Social Data Science OEM", ["Ciencia de Datos", "Análisis de Datos"], "Agosto 2023-Actualidad", 2023, "Análisis de datos de calidad del aire y contaminantes en México por medio de visualizaciones y modelos de machine learning.", "https://pbs.twimg.com/profile_images/1111787884196052992/hxDvukv0_400x400.png")
 addExperience("Servicio Social DIF Atizapan", ["Análisis"], "Agosto 2022-Diciembre 2022", 2022, "Entender Problematicas y crear base de datos en Excel para facilitar el trabajo de los trabajadores del DIF Atizapan.", "https://play-lh.googleusercontent.com/JJTIl1SeH9xk0dvnzNB5vBB3QqSITpRIX-MCDKpSFuoG3hh35e6uT_wQho_cCtskkQ=w240-h480-rw")
 addExperience("Líder de área diseño computacional en grupo estudiantil ESTRATEGO.", ["Liderazgo", "IT"], "Agosto 2020-Junio 2021", 2021, "Lider de área computacional en Estratego, grupo estudiantil para ayudar a la eduación de niños afectados por pandemia.", "img/estratego.enc")
 
@@ -241,9 +241,9 @@ function onScroll() {
 }
 
 const dynamicTitles = [
-    "Data Scientist",
-    "Web Developer",
-    "Data Analyst"
+    "Ciencia de Datos",
+    "Análisis de Datos",
+    "Páginas Web",
 ];
 
 let currentTitleIndex = 0;

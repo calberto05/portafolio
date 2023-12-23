@@ -5,13 +5,9 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    /* Elimina el margen por defecto */
     padding: 0;
-    /* Quitar overflow para evitar scroll horizontal */
     overflow-x: hidden;
-    /* Puedes eliminar también el padding si lo deseas */
     color: #ffffff;
-    /* Color de fondo gradiente*/
     background: radial-gradient(50% 50%, rgb(0, 0, 30), rgb(10, 10, 15));
 }
 
@@ -44,7 +40,6 @@ li {
         height: 100%;
         background-image: radial-gradient(white 1px, transparent 1px);
         background-size: 50px 50px;
-        /* Tamaño de los puntos grandes */
         z-index: 1;
         animation: movePoints 1s infinite alternate;
     }
@@ -55,7 +50,6 @@ li {
     display: none;
 }
 
-/* Animación para mover los puntos */
 @keyframes movePoints {
     0% {
         transform: scale(1);
@@ -66,22 +60,17 @@ li {
         transform: scale(0.975);
         opacity: 0.8;
     }
-
 }
 
 x .changing-text {
     overflow: hidden;
     border-right: 0.08em solid orange;
-    /* Efecto de escritura con un borde derecho */
     white-space: nowrap;
     margin: 0;
     letter-spacing: 0.15em;
-    /* Espaciado de las letras */
     animation: typing 3s steps(40, end), blink-caret 0.5s step-end infinite;
-    /* Definir la animación */
 }
 
-/* Animación de escritura */
 @keyframes typing {
     from {
         width: 0
@@ -92,10 +81,8 @@ x .changing-text {
     }
 }
 
-/* Estilos para la animación activada */
 .animatePoints::before {
     animation-play-state: running;
-    /* Inicia la animación cuando se activa la clase */
 }
 
 .menu {
@@ -125,7 +112,6 @@ x .changing-text {
 .menu a.active {
     border-bottom: 2px solid #fff;
 }
-
 
 .info {
     height: 100%;
@@ -192,10 +178,7 @@ h2 {
     border: 1px solid #fff;
 }
 
-
-/* Agrega la animación al borde cuando el mouse está sobre el elemento */
 .skill_info:hover {
-    /* Aplica la animación al borde */
     animation: borderAnimation 1s linear infinite;
 }
 
@@ -212,7 +195,6 @@ h2 {
         border-color: #fff;
     }
 }
-
 
 
 .skill_title {
@@ -303,7 +285,6 @@ a {
     flex-direction: column;
     flex-direction: space-between;
 }
-
 
 .project_info_container div {
     margin: auto 0 0 auto;
@@ -456,8 +437,7 @@ a {
 
 }
 
-
-
+/*------------------------Responsive----------------------------------*/
 
 @media (max-width: 1100px) {
     .responsive_about_me {
